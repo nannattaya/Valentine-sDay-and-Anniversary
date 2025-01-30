@@ -24,7 +24,7 @@
         }
 
         p {
-            font-size: 2em;
+            font-size: 1.5em;
             color: #555;
         }
 
@@ -35,9 +35,11 @@
             height: auto;
             border-radius: 20px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            margin: 20px;
+            margin: 0px;
             opacity: 0;
             transition: opacity 1.5s ease-in-out;
+            margin-top: 20px; /* เลื่อนบรรทัดด้านบนขึ้น */
+            margin-bottom: 30px; /* เพิ่มช่องว่างด้านล่างรูป */
         }
 
         #additionalImage {
@@ -73,7 +75,7 @@
 
         /* ตั้งชื่อเพลงให้ตรงกลางและเป็นสีดำ */
         #songTitle {
-            font-size: 1em;
+            font-size: 1.8em;
             color: black;
             margin-bottom: 20px;
         }
@@ -112,7 +114,7 @@
             document.getElementById("message").innerText = 
                 "You have replaced my nightmares with dreams, my worries with happiness, and my fears with love. ❤️🥰\n\n"+ 
                 "ฉันได้เปลี่ยนฝันร้ายของฉันด้วยฝันรัก ความกังวลของฉันด้วยความสุข และความกลัวของฉันด้วยความรัก\n\n"+ 
-                "🐷LOVE U green monkey.🐵\n\n\n ";
+                "🐷LOVE U green monkey.🐵\n";
 
             // ตรวจสอบว่า element รูปมีอยู่จริง
             let img = document.getElementById("loveImage");
