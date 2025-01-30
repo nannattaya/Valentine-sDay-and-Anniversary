@@ -14,7 +14,7 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            height: 100vh;
+            height: auto; /* ปรับขนาดให้เลื่อนขึ้นลงได้ */
             margin: 0;
         }
 
@@ -24,7 +24,7 @@
         }
 
         p {
-            font-size: 1.5em;
+            font-size: 2em;
             color: #555;
         }
 
@@ -35,15 +35,15 @@
             height: auto;
             border-radius: 20px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            margin: 0px;
+            margin: 20px;
             opacity: 0;
             transition: opacity 1.5s ease-in-out;
-            margin-top: 10px; /* เลื่อนบรรทัดด้านบนขึ้น */
-            margin-bottom: 40px; /* เพิ่มช่องว่างด้านล่างรูป */
+            margin-top: 10px;
+            margin-bottom: 30px;
         }
 
         #additionalImage {
-            width: 350px;
+            width: 350px; /* ปรับขนาดให้ใหญ่ขึ้น */
             height: auto;
             border-radius: 20px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
@@ -71,6 +71,7 @@
             align-items: center;
             justify-content: center;
             gap: 15px;
+            position: relative; /* ทำให้สามารถเลื่อนหน้าเว็บได้ */
         }
 
         /* ตั้งชื่อเพลงให้ตรงกลางและเป็นสีดำ */
@@ -114,7 +115,7 @@
             document.getElementById("message").innerText = 
                 "You have replaced my nightmares with dreams, my worries with happiness, and my fears with love. ❤️🥰\n\n"+ 
                 "ฉันได้เปลี่ยนฝันร้ายของฉันด้วยฝันรัก ความกังวลของฉันด้วยความสุข และความกลัวของฉันด้วยความรัก\n\n"+ 
-                "🐷LOVE U green monkey.🐵\n";
+                "🐷LOVE U green monkey.🐵\n\n\n ";
 
             // ตรวจสอบว่า element รูปมีอยู่จริง
             let img = document.getElementById("loveImage");
