@@ -40,6 +40,14 @@
             transition: opacity 1.5s ease-in-out;
         }
 
+        #additionalImage {
+            width: 250px;
+            height: auto;
+            border-radius: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            margin: 20px;
+        }
+
         button {
             background-color: #ff66a3;
             color: white;
@@ -104,20 +112,13 @@
         <p>Do you know what I want to say?</p>
 
         <!-- เครื่องเล่นเพลง MP3 -->
-        <audio id="audioPlayer" autoplay loop muted>
+        <audio id="audioPlayer" autoplay loop>
             <source src="ที่เฝ้ารอไม่ใช่หิมะ.mp3" type="audio/mp3">
             Your browser does not support the audio element.
         </audio>
 
-        <!-- เครื่องเล่นเพลง YouTube -->
-        <iframe 
-            src="https://www.youtube.com/embed/TQtgihtAP_s?autoplay=1&si=YTFqkGbmkMDBKGt-" 
-            title="YouTube video player" 
-            frameborder="0" 
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-            referrerpolicy="strict-origin-when-cross-origin" 
-            allowfullscreen>
-        </iframe>
+        <!-- แสดงรูปภาพหลังจากเครื่องเล่นเพลง -->
+        <img id="additionalImage" src="ภาพประกอบเพลง.jpg" alt="Another Love Memory">
 
         <!-- ปุ่มกดบอกรัก -->
         <button onclick="showLove()">💖Try clicking on it💖</button>
@@ -132,8 +133,8 @@
         // ฟังก์ชันเมื่อกดปุ่ม
         function showLove() {
             document.getElementById("message").innerText = 
-                "You have replaced my nightmares with dreams, my worries with happiness, and my fears with love. ❤️🥰\n\n"+
-                "ฉันได้เปลี่ยนฝันร้ายของฉันด้วยฝันรัก ความกังวลของฉันด้วยความสุข และความกลัวของฉันด้วยความรัก\n\n"+
+                "You have replaced my nightmares with dreams, my worries with happiness, and my fears with love. ❤️🥰\n\n"+ 
+                "ฉันได้เปลี่ยนฝันร้ายของฉันด้วยฝันรัก ความกังวลของฉันด้วยความสุข และความกลัวของฉันด้วยความรัก\n\n"+ 
                 "🐷LOVE U green monkey.🐵\n\n\n ";
 
             // ตรวจสอบว่า element รูปมีอยู่จริง
