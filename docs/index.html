@@ -9,7 +9,7 @@
             text-align: center;
             font-family: Arial, sans-serif;
             background-color: #ffebf0;
-            padding: 50px;
+            padding: 5%;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -17,41 +17,44 @@
             height: 100vh;
             margin: 0;
         }
+
         h1 {
             color: #d63384;
-            font-size: 2rem;
-            margin-bottom: 20px;
+            font-size: 3em; /* ปรับขนาดตามหน้าจอ */
         }
+
         p {
-            font-size: 1.2rem;
+            font-size: 1.5em; /* ปรับขนาดตามหน้าจอ */
             color: #555;
-            margin-bottom: 20px;
         }
+
         /* ซ่อนรูปตอนแรก */
         #loveImage {
             display: none;
-            max-width: 100%;
-            height: auto;
+            width: 250px; /* กำหนดขนาดรูปที่แน่นอน */
+            height: auto; /* รักษาสัดส่วนของรูป */
             border-radius: 20px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
             margin: 20px;
             opacity: 0;
             transition: opacity 1.5s ease-in-out;
         }
+
         button {
             background-color: #ff66a3;
             color: white;
             border: none;
-            padding: 12px 25px;
-            font-size: 1.2rem;
+            padding: 1.5em 3em; /* ปรับขนาดปุ่มให้ยืดหยุ่น */
+            font-size: 1.2em; /* ปรับขนาดตามหน้าจอ */
             cursor: pointer;
             border-radius: 10px;
             margin: 15px;
         }
+
         button:hover {
             background-color: #ff3385;
         }
-        /* จัดกล่องให้ทุกอย่างอยู่ตรงกลาง */
+
         .container {
             display: flex;
             flex-direction: column;
@@ -60,41 +63,36 @@
             gap: 15px;
         }
 
-        /* ปรับ iframe ของ YouTube */
         iframe {
-            width: 100%;
-            max-width: 560px;
+            max-width: 100%; /* ปรับให้ iframe ขยายเต็มขนาดหน้าจอ */
             height: auto;
-            aspect-ratio: 16/9;
         }
 
-        /* Media Query สำหรับมือถือ */
-        @media (max-width: 600px) {
+        /* สำหรับขนาดหน้าจอเล็ก */
+        @media (max-width: 768px) {
             h1 {
-                font-size: 1.5rem;
+                font-size: 2.5em;
             }
             p {
-                font-size: 1rem;
+                font-size: 1.2em;
             }
             button {
-                font-size: 1rem;
-                padding: 10px 20px;
-            }
-            #loveImage {
-                width: 80%;
+                padding: 1em 2.5em;
+                font-size: 1.1em;
             }
         }
 
-        /* Media Query สำหรับแท็บเล็ต */
-        @media (max-width: 1024px) {
+        /* สำหรับขนาดหน้าจอที่เล็กมาก */
+        @media (max-width: 480px) {
             h1 {
-                font-size: 1.8rem;
+                font-size: 2em;
+            }
+            p {
+                font-size: 1em;
             }
             button {
-                font-size: 1.1rem;
-            }
-            #loveImage {
-                width: 80%;
+                padding: 0.8em 2em;
+                font-size: 1em;
             }
         }
     </style>
@@ -105,15 +103,15 @@
         <h1>💕 hello darling 💕</h1>
         <p>Do you know what I want to say?</p>
 
-        <!-- เครื่องเล่นเพลง -->
-        <audio controls autoplay loop>
+        <!-- เครื่องเล่นเพลง MP3 -->
+        <audio id="audioPlayer" autoplay loop muted>
             <source src="ที่เฝ้ารอไม่ใช่หิมะ.mp3" type="audio/mp3">
             Your browser does not support the audio element.
         </audio>
 
-        <!-- YouTube วิดีโอที่เล่นอัตโนมัติ -->
+        <!-- เครื่องเล่นเพลง YouTube -->
         <iframe 
-            src="https://www.youtube.com/embed/TQtgihtAP_s?autoplay=1&loop=1&playlist=TQtgihtAP_s" 
+            src="https://www.youtube.com/embed/TQtgihtAP_s?autoplay=1&si=YTFqkGbmkMDBKGt-" 
             title="YouTube video player" 
             frameborder="0" 
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
@@ -128,15 +126,15 @@
 
         <!-- รูปที่ซ่อนอยู่ -->
         <img id="loveImage" src="18BB3C2A-EC8C-4CE6-8F7F-66E8379153CD.jpg" alt="Our Love Memory">
-
     </div>
 
     <script>
+        // ฟังก์ชันเมื่อกดปุ่ม
         function showLove() {
             document.getElementById("message").innerText = 
                 "You have replaced my nightmares with dreams, my worries with happiness, and my fears with love. ❤️🥰\n\n"+
                 "ฉันได้เปลี่ยนฝันร้ายของฉันด้วยฝันรัก ความกังวลของฉันด้วยความสุข และความกลัวของฉันด้วยความรัก\n\n"+
-                "🐷LOVE U green monkey.🐵\n\n\n";
+                "🐷LOVE U green monkey.🐵\n\n\n ";
 
             // ตรวจสอบว่า element รูปมีอยู่จริง
             let img = document.getElementById("loveImage");
@@ -148,6 +146,12 @@
             } else {
                 console.error("Image not found!");
             }
+        }
+
+        // ฟังก์ชันให้เพลงเล่นเองหลังจากโหลดหน้า
+        window.onload = function() {
+            var audio = document.getElementById("audioPlayer");
+            audio.play();  // เรียกใช้ฟังก์ชันเล่นเพลงเมื่อโหลดหน้าเสร็จ
         }
     </script>
 
