@@ -20,19 +20,19 @@
 
         h1 {
             color: #d63384;
-            font-size: 3em; /* ปรับขนาดตามหน้าจอ */
+            font-size: 3em;
         }
 
         p {
-            font-size: 1.5em; /* ปรับขนาดตามหน้าจอ */
+            font-size: 1.5em;
             color: #555;
         }
 
         /* ซ่อนรูปตอนแรก */
         #loveImage {
             display: none;
-            width: 250px; /* กำหนดขนาดรูปที่แน่นอน */
-            height: auto; /* รักษาสัดส่วนของรูป */
+            width: 250px;
+            height: auto;
             border-radius: 20px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
             margin: 20px;
@@ -52,8 +52,8 @@
             background-color: #ff66a3;
             color: white;
             border: none;
-            padding: 1.5em 3em; /* ปรับขนาดปุ่มให้ยืดหยุ่น */
-            font-size: 1.2em; /* ปรับขนาดตามหน้าจอ */
+            padding: 1.5em 3em;
+            font-size: 1.2em;
             cursor: pointer;
             border-radius: 10px;
             margin: 15px;
@@ -70,16 +70,26 @@
             justify-content: center;
             gap: 15px;
         }
+
+        /* ตั้งชื่อเพลงให้ตรงกลางและเป็นสีดำ */
+        #songTitle {
+            font-size: 1em;
+            color: black;
+            margin-bottom: 20px;
+        }
     </style>
 </head>
 <body>
 
     <div class="container">
         <h1>💕 hello darling 💕</h1>
-        <p>Do you know what I want to say?</p>
+        <h2>Do you know what I want to say?</h2>
+
+        <!-- ชื่อเพลง -->
+        <div id="songTitle">เพลง: ที่ฉันเฝ้ารอไม่ใช่หิมะ</div>
 
         <!-- เครื่องเล่นเพลง MP3 ที่เล่นอัตโนมัติและวนลูป -->
-         <audio controls autoplay loop>
+        <audio controls autoplay loop>
             <source src="ที่เฝ้ารอไม่ใช่หิมะ.mp3" type="audio/mp3">
             Your browser does not support the audio element.
         </audio>
