@@ -20,15 +20,18 @@
         h1 {
             color: #d63384;
             font-size: 2rem;
+            margin-bottom: 20px;
         }
         p {
             font-size: 1.2rem;
             color: #555;
+            margin-bottom: 20px;
         }
         /* ซ่อนรูปตอนแรก */
         #loveImage {
             display: none;
-            width: 250px;
+            max-width: 100%;
+            height: auto;
             border-radius: 20px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
             margin: 20px;
@@ -57,13 +60,15 @@
             gap: 15px;
         }
 
-        /* ทำให้ iframe ของ YouTube ปรับขนาดได้ตามหน้าจอ */
+        /* ปรับ iframe ของ YouTube */
         iframe {
-            max-width: 100%;
+            width: 100%;
+            max-width: 560px;
             height: auto;
+            aspect-ratio: 16/9;
         }
 
-        /* Media Query สำหรับขนาดหน้าจอมือถือ */
+        /* Media Query สำหรับมือถือ */
         @media (max-width: 600px) {
             h1 {
                 font-size: 1.5rem;
@@ -76,20 +81,20 @@
                 padding: 10px 20px;
             }
             #loveImage {
-                width: 200px;
+                width: 80%;
             }
         }
 
-        /* Media Query สำหรับขนาดหน้าจอแท็บเล็ต */
+        /* Media Query สำหรับแท็บเล็ต */
         @media (max-width: 1024px) {
             h1 {
                 font-size: 1.8rem;
             }
             button {
-                font-size: 1.2rem;
+                font-size: 1.1rem;
             }
             #loveImage {
-                width: 220px;
+                width: 80%;
             }
         }
     </style>
@@ -101,10 +106,7 @@
         <p>Do you know what I want to say?</p>
 
         <!-- เครื่องเล่นเพลง -->
-        <audio controls autoplay loop>
-            <source src="ที่เฝ้ารอไม่ใช่หิมะ.mp3" type="audio/mp3">
-            Your browser does not support the audio element.
-        </audio>
+      
 
         <!-- YouTube วิดีโอที่เล่นอัตโนมัติ -->
         <iframe 
