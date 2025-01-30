@@ -15,12 +15,14 @@
             align-items: center;
             justify-content: center;
             height: 100vh;
+            margin: 0;
         }
         h1 {
             color: #d63384;
+            font-size: 2rem;
         }
         p {
-            font-size: 18px;
+            font-size: 1.2rem;
             color: #555;
         }
         /* ซ่อนรูปตอนแรก */
@@ -38,7 +40,7 @@
             color: white;
             border: none;
             padding: 12px 25px;
-            font-size: 20px;
+            font-size: 1.2rem;
             cursor: pointer;
             border-radius: 10px;
             margin: 15px;
@@ -54,6 +56,42 @@
             justify-content: center;
             gap: 15px;
         }
+
+        /* ทำให้ iframe ของ YouTube ปรับขนาดได้ตามหน้าจอ */
+        iframe {
+            max-width: 100%;
+            height: auto;
+        }
+
+        /* Media Query สำหรับขนาดหน้าจอมือถือ */
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 1.5rem;
+            }
+            p {
+                font-size: 1rem;
+            }
+            button {
+                font-size: 1rem;
+                padding: 10px 20px;
+            }
+            #loveImage {
+                width: 200px;
+            }
+        }
+
+        /* Media Query สำหรับขนาดหน้าจอแท็บเล็ต */
+        @media (max-width: 1024px) {
+            h1 {
+                font-size: 1.8rem;
+            }
+            button {
+                font-size: 1.2rem;
+            }
+            #loveImage {
+                width: 220px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -67,18 +105,16 @@
             <source src="ที่เฝ้ารอไม่ใช่หิมะ.mp3" type="audio/mp3">
             Your browser does not support the audio element.
         </audio>
-	    
-	 <iframe 
-    		width="560" 
-    		height="315" 
-    		src="https://www.youtube.com/embed/TQtgihtAP_s?autoplay=1&si=YTFqkGbmkMDBKGt-" 
-    		title="YouTube video player" 
-    		frameborder="0" 
-    		allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-    		referrerpolicy="strict-origin-when-cross-origin" 
-    		allowfullscreen>
-	</iframe>
 
+        <!-- YouTube วิดีโอที่เล่นอัตโนมัติ -->
+        <iframe 
+            src="https://www.youtube.com/embed/TQtgihtAP_s?autoplay=1&loop=1&playlist=TQtgihtAP_s" 
+            title="YouTube video player" 
+            frameborder="0" 
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+            referrerpolicy="strict-origin-when-cross-origin" 
+            allowfullscreen>
+        </iframe>
 
         <!-- ปุ่มกดบอกรัก -->
         <button onclick="showLove()">💖Try clicking on it💖</button>
@@ -93,10 +129,9 @@
     <script>
         function showLove() {
             document.getElementById("message").innerText = 
-		"You have replaced my nightmares with dreams, my worries with happiness, and my fears with love. ❤️🥰\n\n"+
-		"ฉันได้เปลี่ยนฝันร้ายของฉันด้วยฝันรัก ความกังวลของฉันด้วยความสุข และความกลัวของฉันด้วยความรัก\n\n"+
-		" 🐷LOVE U green monkey.🐵\n\n\n ";
-
+                "You have replaced my nightmares with dreams, my worries with happiness, and my fears with love. ❤️🥰\n\n"+
+                "ฉันได้เปลี่ยนฝันร้ายของฉันด้วยฝันรัก ความกังวลของฉันด้วยความสุข และความกลัวของฉันด้วยความรัก\n\n"+
+                "🐷LOVE U green monkey.🐵\n\n\n";
 
             // ตรวจสอบว่า element รูปมีอยู่จริง
             let img = document.getElementById("loveImage");
