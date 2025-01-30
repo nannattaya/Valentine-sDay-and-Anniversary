@@ -14,7 +14,7 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            height: auto; /* ปรับขนาดให้เลื่อนขึ้นลงได้ */
+            height: auto;
             margin: 0;
         }
 
@@ -43,7 +43,7 @@
         }
 
         #additionalImage {
-            width: 250px; /* ปรับขนาดให้ใหญ่ขึ้น */
+            width: 250px;
             height: auto;
             border-radius: 20px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
@@ -71,14 +71,28 @@
             align-items: center;
             justify-content: center;
             gap: 15px;
-            position: relative; /* ทำให้สามารถเลื่อนหน้าเว็บได้ */
+            position: relative;
         }
 
-        /* ตั้งชื่อเพลงให้ตรงกลางและเป็นสีดำ */
         #songTitle {
             font-size: 1.5em;
             color: black;
             margin-bottom: 20px;
+        }
+
+        /* ปรับขนาดปุ่ม */
+        #toggleButton {
+            background-color: #ff3385;
+            color: white;
+            border: none;
+            padding: 1em 2em;
+            font-size: 1em;
+            cursor: pointer;
+            border-radius: 10px;
+        }
+
+        #toggleButton:hover {
+            background-color: #ff66a3;
         }
     </style>
 </head>
@@ -100,8 +114,8 @@
         <!-- แสดงรูปภาพ -->
         <img id="additionalImage" src="ภาพประกอบเพลง.jpg" alt="Another Love Memory">
 
-        <!-- ปุ่มกดบอกรัก -->
-        <button onclick="showLove()">💖Try clicking on it💖</button>
+        <!-- ปุ่มเปิด/ปิด -->
+        <button id="toggleButton" onclick="toggleLove()">💖Try clicking on it💖</button>
 
         <p id="message" style="font-size: 22px; color: #ff3385; font-weight: bold;"></p>
 
@@ -110,22 +124,30 @@
     </div>
 
     <script>
-        // ฟังก์ชันเมื่อกดปุ่มบอกรัก
-        function showLove() {
-            document.getElementById("message").innerText = 
-                "You have replaced my nightmares with dreams, my worries with happiness, and my fears with love. ❤️🥰\n\n"+ 
-                "ฉันได้เปลี่ยนฝันร้ายของฉันด้วยฝันรัก ความกังวลของฉันด้วยความสุข และความกลัวของฉันด้วยความรัก\n\n"+ 
-                "🐷LOVE U green monkey.🐵\n\n\n ";
+        // ฟังก์ชันเปิด/ปิดข้อความและรูป
+        function toggleLove() {
+            var loveImage = document.getElementById("loveImage");
+            var message = document.getElementById("message");
+            var toggleButton = document.getElementById("toggleButton");
 
-            // ตรวจสอบว่า element รูปมีอยู่จริง
-            let img = document.getElementById("loveImage");
-            if (img) {
-                img.style.display = "block"; 
+            if (loveImage.style.display === "none") {
+                // แสดงข้อความและรูป
+                loveImage.style.display = "block"; 
                 setTimeout(() => {
-                    img.style.opacity = "1";
+                    loveImage.style.opacity = "1";
                 }, 100);
+
+                message.innerText = 
+                    "You have replaced my nightmares with dreams, my worries with happiness, and my fears with love.❤️🥰\n\n"+ 
+                    "ฉันได้เปลี่ยนฝันร้ายของฉันด้วยฝันรัก ความกังวลของฉันด้วยความสุข และความกลัวของฉันด้วยความรัก\n\n"+ 
+                    "🐷LOVE U green monkey.🐵\n\n ";
+
+                toggleButton.innerText = "🐱 Close 🐱"; // เปลี่ยนข้อความเป็นปิด
             } else {
-                console.error("Image not found!");
+                // ซ่อนข้อความและรูป
+                loveImage.style.display = "none";
+                message.innerText = "";
+                toggleButton.innerText = "💖Try clicking on it💖"; // เปลี่ยนข้อความเป็นเปิด
             }
         }
     </script>
