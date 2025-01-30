@@ -10,37 +10,92 @@
             font-family: Arial, sans-serif;
             background-color: #ffebf0;
             padding: 50px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
         }
         h1 {
             color: #d63384;
+        }
+        p {
+            font-size: 18px;
+            color: #555;
+        }
+        /* ซ่อนรูปตอนแรก */
+        #loveImage {
+            display: none;
+            width: 250px;
+            border-radius: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            margin: 20px;
+            opacity: 0;
+            transition: opacity 1.5s ease-in-out;
         }
         button {
             background-color: #ff66a3;
             color: white;
             border: none;
-            padding: 10px 20px;
-            font-size: 18px;
+            padding: 12px 25px;
+            font-size: 20px;
             cursor: pointer;
             border-radius: 10px;
-            margin: 10px;
+            margin: 15px;
         }
         button:hover {
             background-color: #ff3385;
+        }
+        /* จัดกล่องให้ทุกอย่างอยู่ตรงกลาง */
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
         }
     </style>
 </head>
 <body>
 
-    <h1>💕 hello darling 💕</h1>
-    <p>Do you know what I want to say?</p>
+    <div class="container">
+        <h1>💕 hello darling 💕</h1>
+        <p>Do you know what I want to say?</p>
 
-    <button onclick="showLove()">💖Try clicking on it💖</button>
+        <!-- เครื่องเล่นเพลง -->
+        <audio controls autoplay loop>
+            <source src="love-song.mp3" type="audio/mp3">
+            Your browser does not support the audio element.
+        </audio>
 
-    <p id="message" style="font-size: 20px; color: #ff3385; font-weight: bold;"></p>
+        <!-- ปุ่มกดบอกรัก -->
+        <button onclick="showLove()">💖Try clicking on it💖</button>
+
+        <p id="message" style="font-size: 22px; color: #ff3385; font-weight: bold;"></p>
+
+        <!-- รูปที่ซ่อนอยู่ -->
+        <img id="loveImage" src="2025-01-30_10-11-20.png" alt="Our Love Memory">
+
+    </div>
 
     <script>
         function showLove() {
-            document.getElementById("message").innerText = "รักมากที่สุดในโลกเลย! ❤️🥰";
+            document.getElementById("message").innerText = 
+		"You have replaced my nightmares with dreams, my worries with happiness, and my fears with love. ❤️🥰\n\n"+
+		"ฉันได้เปลี่ยนฝันร้ายของฉันด้วยฝันรัก ความกังวลของฉันด้วยความสุข และความกลัวของฉันด้วยความรัก\n\n"+
+		" 🐷LOVE U green monkey.🐵\n\n\n ";
+
+
+            // ตรวจสอบว่า element รูปมีอยู่จริง
+            let img = document.getElementById("loveImage");
+            if (img) {
+                img.style.display = "block"; 
+                setTimeout(() => {
+                    img.style.opacity = "1";
+                }, 100);
+            } else {
+                console.error("Image not found!");
+            }
         }
     </script>
 
